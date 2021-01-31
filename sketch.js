@@ -4,9 +4,8 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
-function preload()
-{
-	
+function preload() {
+
 }
 
 function setup() {
@@ -21,28 +20,46 @@ function setup() {
 
 	Engine.run(engine);
 
-	ground1 = Bodies.rectangle(width/2 , 400 , width , 10,
-		{
-          isStatic: true
-		});
-	paper1 = new Paper(100,300,10);
 
-	dustbin1= new Dustbin(720,390,100,10);
-	
-  
+	ground1 = Bodies.rectangle(width / 2, 400, width, 10,
+		{
+			isStatic: true
+		});
+
+
+
+	paper1 = new Paper(100, 300, 10);
+
+
+	dustbin1 = new Dustbin(720, 390, 100, 10);
+	dustbin2 = new Dustbin(675,345,10,90);
+	dustbin3 = new Dustbin(770,345,10,90);
+
+
 }
 
 
 function draw() {
-  rectMode(CENTER);
-  background(0);
-  Engine.update(engine);
-  dustbin1.display();
-  ground1.display();
-  paper1.display();
-  drawSprites();
- 
+	rectMode(CENTER);
+	background(0);
+	Engine.update(engine);
+
+	rect(ground1.position.x, ground1.position.y, width, 10)
+	dustbin1.display();
+	dustbin2.display();
+	dustbin3.display();
+	paper1.display();
+	drawSprites();
+
 }
 
+function keyPressed() {
+
+	if(keyCode=== UP_ARROW) {
+
+		Matter.Body.applyForce(paper.object.body,paper1.body.position,{x:85,y:-85})
+	}
+
+}
 
 
