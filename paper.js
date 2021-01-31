@@ -18,7 +18,7 @@ class Paper {
        ellipseMode(RADIUS)
        strokeWeight(3);
        fill("red")
-       ellipse(0,0,r,r);
+       ellipse(0,0,this.r,this.r);
        pop()
    }
 }
